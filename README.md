@@ -4,6 +4,10 @@ Computer vision for automatic rotation of face pictures
 ## The task
 Imagine we have a model deployed on the cloud which performs face recognition on images sent to it.This model works great on well-oriented images, i.e. images which are the right way up. However, when badly-oriented images are sent, e.g. upside-down images, the model performs poorly. Since we have no  control over how the images are sent and have no guarantee that the images will come with orientation-metadata, we would like a pre-processing step which fixes the orientation of the images before being sent to the main model. The possible orientations are 0, 90, 180, 270 degrees with respect to the refence orientation.
 
+<p align = 'center'>
+<img src = 'examples/take_home_yoyo.png' height = '246px'>
+</p>
+
 ## Data
 The dataset of faces (merge of many dataset freely available on the web, [link](http://www.face-rec.org/databases/)) is available at my Kaggle profile page [here](https://www.kaggle.com/gasgallo/faces-data-new). It's a collection of around 8k pictures of different individuals in different poses and different backgrounds.
 Of course these pictures are more complicated than the one provided as a test example,...
