@@ -1,0 +1,8 @@
+Pillow
+scipy
+numpy
+flask
+opencv-python
+os
+dlib
+gunicorn
