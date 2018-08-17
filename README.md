@@ -5,12 +5,12 @@ Computer vision for automatic rotation of face pictures
 Imagine we have a model deployed on the cloud which performs face recognition on images sent to it.This model works great on well-oriented images, i.e. images which are the right way up. However, when badly-oriented images are sent, e.g. upside-down images, the model performs poorly. Since we have no  control over how the images are sent and have no guarantee that the images will come with orientation-metadata, we would like a pre-processing step which fixes the orientation of the images before being sent to the main model. The possible orientations are 0, 90, 180, 270 degrees with respect to the refence orientation.
 
 <p align = 'center'>
-<img src = 'examples/take-home-yoyo.png'>
+<img src = 'examples/take-home-yoyo.jpg' height = '400px'>
 </p>
 
 ## Data
 The dataset of faces (merge of many dataset freely available on the web, [link](http://www.face-rec.org/databases/)) is available at my Kaggle profile page [here](https://www.kaggle.com/gasgallo/faces-data-new). It's a collection of around 8k pictures of different individuals in different poses and different backgrounds.
-Of course these pictures are more complicated than the one provided as a test example,...
+Of course these pictures are more complicated (noise, background, scale, etc.) than the one provided as a test example, so if the model will perform good with them, it will for sure perform better with the example-like ones.
 
 ## Build a model
 The model used in this case is a precompiled one that exploits HOG+SVM to detect a face into a given picture, for details look here ([dlib](http://dlib.net/python/index.html#dlib.get_frontal_face_detector)). It's robust and can detect faces in an accurate way. The important feature of this model is that it detects faces only if they're up-down (or almost up-down) oriented. So if the given picture is rotated (not up-down oriented), the model won't detect any face.
