@@ -15,6 +15,7 @@ Of course these pictures are more complicated (noise, background, scale, etc.) t
 ## Build a model
 The model used in this case is a precompiled one that exploits HOG+SVM to detect a face into a given picture, for details look here ([dlib](http://dlib.net/python/index.html#dlib.get_frontal_face_detector)). It's robust and can detect faces in an accurate way. The important feature of this model is that it detects faces only if they're up-down (or almost up-down) oriented. So if the given picture is rotated (not up-down oriented), the model won't detect any face.
 I've exploited this feature. I rotate the given picture by (0, 90, 180, 270) degrees until a face is detected and take a note about which rotation makes the model detect the face. Then I process the input image and rotate it by the previously found angle.
+
 The accuracy reached on the test set when a face is detected is over 97%. Take into consideratio that the dataset used for testing is way more noisy and various than the picture provided as a test example. Though I assume that the accuracy other a dataset of pictures similar to the example one could reach values extremely close to 100%.
 
 ## Create an API
