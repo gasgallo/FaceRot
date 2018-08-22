@@ -1,5 +1,8 @@
-# function to rotate an images
+"""
+Utility functions and helpers for processing images
+"""
 
+# import the necessary packages
 import cv2
 import numpy as np
 
@@ -12,6 +15,7 @@ def rotate(image, angle):
 
     Source: http://stackoverflow.com/questions/16702966/rotate-image-and-crop-out-black-borders
     """
+    
     # Get the image size
     # No that's not an error - NumPy stores image matricies backwards
     image_size = (image.shape[1], image.shape[0])
@@ -28,7 +32,7 @@ def rotate(image, angle):
     image_w2 = image_size[0] * 0.5
     image_h2 = image_size[1] * 0.5
 
-    # Obtain the rotated coordinates of the image corners
+    # Obtain the rotated coordinates of the image corners as arrays
     rotated_coords = [
         (np.array([-image_w2,  image_h2]) * rot_mat_notranslate).A[0],
         (np.array([ image_w2,  image_h2]) * rot_mat_notranslate).A[0],
@@ -60,7 +64,7 @@ def rotate(image, angle):
         [0, 0, 1]
     ])
 
-    # Compute the tranform for the combined rotation and translation
+    # Compute the tranform 2x3 matrix for the combined rotation and translation
     affine_mat = (np.matrix(trans_mat) * np.matrix(rot_mat))[0:2, :]
 
     # Apply the transform
@@ -68,7 +72,7 @@ def rotate(image, angle):
         image,
         affine_mat,
         (new_w, new_h),
-        flags=cv2.INTER_LINEAR
+        flags=cv2.INTER_LINEAR # bilinear interpolation
     )
 
     return result
