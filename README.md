@@ -12,7 +12,7 @@ From lef to right and from top to bottom: reference orientation (0°), +90°, +1
 </p>
 
 ## Data
-The dataset of faces (merge of many dataset freely available on the web, [link](http://www.face-rec.org/databases/)) is available on Kaggle [here](https://www.kaggle.com/gasgallo/faces-data-new). It's a collection of around 8k pictures of different individuals in different poses and different backgrounds.
+The dataset of faces (merge of many dataset freely available on the web, [link](http://www.face-rec.org/databases/)) is available on Kaggle [here](https://www.kaggle.com/gasgallo/faces-data-new) and [here](https://www.kaggle.com/gasgallo/lag-dataset). It's a collection of around 8k and 4k pictures of different individuals in different poses and different backgrounds.
 Of course these pictures are more complicated (noise, background, scale, etc.) than the one provided as a test example, so if the model will perform good with them, it will for sure perform better with the example-like ones.
 
 ## Build a model
